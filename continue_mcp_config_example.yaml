@@ -1,0 +1,44 @@
+# Example Continue.dev config.yaml with Open Brain MCP server
+# Place this in ~/.continue/config.yaml or merge with existing config
+
+# MCP Servers configuration
+mcpServers:
+  openbrain:
+    # Command to start the MCP server
+    command: "node"
+    args:
+      - "/Users/jeffgordon/LocalFile/openbrain/mcp-server/index.js"
+    # Or if you want to use a relative path from your project:
+    # command: "node"
+    # args:
+    #   - "./mcp-server/index.js"
+    #   - "cwd": "/Users/jeffgordon/LocalFile/openbrain"
+    
+    # Optional: Environment variables
+    env:
+      USER: "jeffgordon"
+      # Add any other environment variables needed
+    
+    # Optional: Auto-start when Continue starts
+    autoStart: true
+
+# Alternative: If you want to run it as a background service first
+# You can also run the server manually and configure Continue to connect to it:
+# mcpServers:
+#   openbrain:
+#     url: "stdio:///path/to/socket"  # If using stdio transport
+#     # or for TCP:
+#     # url: "tcp://localhost:8080"
+
+# Your existing models configuration (keep this if you have it)
+models:
+  - title: "Claude 3.5 Sonnet"
+    provider: "anthropic"
+    model: "claude-3-5-sonnet-20241022"
+    apiKey: "${ANTHROPIC_API_KEY}"
+
+# Optional: Add context providers
+contextProviders:
+  - name: "openbrain"
+    type: "mcp"
+    server: "openbrain"

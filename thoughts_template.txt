@@ -1,0 +1,12 @@
+# Format: content|category
+# Add your thoughts below, one per line
+
+Using all-MiniLM-L6-v2 for embeddings (384-dim) - good balance of speed/quality|decision
+PostgreSQL with pgvector enables semantic search across thoughts|architecture
+Telegram bot for capture because it's lightweight and cross-platform|decision
+Virtual environments (venv) essential for Python package isolation|lesson
+MCP servers use stdio protocol - they just sit there waiting|lesson
+Working style: prefer CLI tools and VS Code over dedicated apps|preference
+Goal: context persistence across different AI models and agents|philosophy
+How-to: Check PostgreSQL status - brew services list | grep postgresql|howto
+How-to: Run capture bot - cd ~/LocalFile/openbrain && source venv/bin/activate && python3 capture_bot_passive.py|howto

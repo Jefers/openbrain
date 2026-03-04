@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/LocalFile/openbrain
+source venv/bin/activate
+python3 add_llm.py
