@@ -1,0 +1,16 @@
+#!/bin/bash
+# Show the most recently saved file
+
+LATEST=$(ls -t ~/LocalFile/openbrain/llm_thoughts_*.txt 2>/dev/null | head -1)
+
+if [ -z "$LATEST" ]; then
+    echo "❌ No saved thought files found"
+    exit 1
+fi
+
+echo "📄 Latest file: $(basename "$LATEST")"
+echo "=================="
+head -20 "$LATEST"
+echo "=================="
+echo ""
+echo "To load: addtxt $LATEST"

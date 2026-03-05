@@ -1,0 +1,13 @@
+#!/bin/bash
+# Save clipboard content to a file for review
+
+OUTPUT_FILE="$HOME/LocalFile/openbrain/llm_output.txt"
+pbpaste > "$OUTPUT_FILE"
+
+echo "✅ Saved clipboard to $OUTPUT_FILE"
+echo "📝 File contents:"
+echo "=================="
+head -20 "$OUTPUT_FILE"
+echo "=================="
+echo ""
+echo "Now edit add_llm.py and paste the list where indicated"

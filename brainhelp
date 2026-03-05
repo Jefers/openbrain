@@ -1,0 +1,85 @@
+#!/bin/bash
+# Open Brain - Complete Command Reference
+
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}🧠 OPEN BRAIN - COMPLETE COMMAND REFERENCE${NC}"
+echo -e "${BLUE}==========================================${NC}"
+echo ""
+
+# Main brain commands
+echo -e "${YELLOW}📋 MAIN BRAIN COMMANDS${NC}"
+echo -e "${CYAN}brain${NC}                    - Main CLI tool (see 'brain help' for details)"
+echo -e "  ${CYAN}brain recent [days] [limit]${NC}  - Show recent memories"
+echo -e "  ${CYAN}brain search <keyword>${NC}       - Keyword search"
+echo -e "  ${CYAN}brain semantic <query>${NC}       - Semantic search by meaning"
+echo -e "  ${CYAN}brain stats${NC}                  - Database statistics"
+echo -e "  ${CYAN}brain add \"thought\"${NC}         - Add a memory"
+echo -e "  ${CYAN}brain list [limit]${NC}           - List all memories"
+echo -e "  ${CYAN}brain count${NC}                  - Count memories by time"
+echo -e "  ${CYAN}brain categories${NC}              - Show category breakdown"
+echo -e "  ${CYAN}brain generate-embeddings${NC}     - Fix missing embeddings"
+echo ""
+
+# Add commands
+echo -e "${YELLOW}➕ ADD COMMANDS${NC}"
+echo -e "${CYAN}add${NC} \"thought\" [category]    - Add a single thought (category optional)"
+echo -e "${CYAN}addtxt${NC} filename.txt         - Bulk add from text file (content|category per line)"
+echo -e "${CYAN}addllm${NC}                      - Open add_llm.py to paste LLM-generated list"
+echo ""
+
+# Prompt helpers
+echo -e "${YELLOW}📝 PROMPT HELPERS${NC}"
+echo -e "${CYAN}brainprompt${NC}                 - Copy LLM prompt (Python list format) to clipboard"
+echo -e "${CYAN}fileprompt${NC}                  - Copy file prompt (content|category format) to clipboard"
+echo -e "${CYAN}brainsave${NC}                   - Save clipboard to llm_output.txt (for addllm)"
+echo -e "${CYAN}brainsavefile${NC}               - Save clipboard to timestamped file (for addtxt)"
+echo -e "${CYAN}brainlast${NC}                    - Show most recently saved file"
+echo ""
+
+# Telegram bot
+echo -e "${YELLOW}🤖 TELEGRAM BOT${NC}"
+echo -e "${CYAN}brainbot${NC}                     - Run Telegram bot (processes messages)"
+echo ""
+
+# Database
+echo -e "${YELLOW}🗄️  DATABASE${NC}"
+echo -e "${CYAN}psql openbrain${NC}               - Direct database access"
+echo -e "${CYAN}pg_dump openbrain > backup.sql${NC} - Backup database"
+echo ""
+
+# File formats
+echo -e "${YELLOW}📁 FILE FORMATS${NC}"
+echo -e "${BLUE}For addllm:${NC} Python list of tuples"
+echo '  [("content", "category"), ("more content", "category")]'
+echo ""
+echo -e "${BLUE}For addtxt:${NC} Plain text, one per line"
+echo '  content|category'
+echo '  another thought|lesson'
+echo '  # Lines starting with # are ignored'
+echo ""
+
+# Example workflow
+echo -e "${YELLOW}🚀 EXAMPLE WORKFLOW${NC}"
+echo -e "1. ${CYAN}fileprompt${NC}                    # Copy prompt to clipboard"
+echo -e "2. Paste into Claude/other AI and get response"
+echo -e "3. ${CYAN}brainsavefile${NC}                 # Save response to file"
+echo -e "4. ${CYAN}addtxt filename.txt${NC}           # Load into database"
+echo -e "5. ${CYAN}brain semantic \"your query\"${NC}  # Search your new memories"
+echo ""
+
+# Quick stats
+echo -e "${YELLOW}📊 QUICK STATS${NC}"
+echo -e "${CYAN}brain stats${NC}                    # Show database stats"
+echo -e "${CYAN}brain categories${NC}               # Show category distribution"
+echo ""
+
+echo -e "${GREEN}==========================================${NC}"
+echo -e "${PURPLE}Your Open Brain is in: ~/LocalFile/openbrain/${NC}"
+echo -e "${PURPLE}Total memories: $(psql -d openbrain -t -c "SELECT COUNT(*) FROM memories;" 2>/dev/null | tr -d ' ' || echo "N/A")${NC}"
